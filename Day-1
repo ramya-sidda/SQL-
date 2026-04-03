@@ -1,0 +1,9 @@
+Find Duplicates 
+CODE:
+SELECT *
+FROM (
+    SELECT *,
+           ROW_NUMBER() OVER (PARTITION BY email ORDER BY id) AS row_num
+    FROM Employees
+) t
+WHERE row_num > 1;
