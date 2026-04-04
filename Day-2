@@ -1,0 +1,10 @@
+How to delete duplicates 
+DELETE FROM Employees
+WHERE id IN (
+    SELECT id FROM (
+        SELECT id,
+               ROW_NUMBER() OVER (PARTITION BY email ORDER BY id) AS rn
+        FROM Employees
+    ) t
+    WHERE rn > 1
+);
