@@ -1,0 +1,7 @@
+Employees who are not present in department table
+
+SELECT e.emp_id, e.name
+FROM Employees e
+LEFT JOIN Department d
+ON e.emp_id = d.emp_id
+WHERE d.emp_id IS NULL;
