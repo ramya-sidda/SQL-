@@ -1,0 +1,6 @@
+Second highest salary 
+
+SELECT DISTINCT salary
+FROM Employees
+ORDER BY salary DESC
+LIMIT 1 OFFSET 1;
