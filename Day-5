@@ -1,0 +1,9 @@
+How DenseRank Uses
+
+SELECT Salary
+FROM (
+    SELECT Salary,
+           DENSE_RANK() OVER (ORDER BY Salary DESC) AS rnk
+    FROM employees
+) t
+WHERE rnk = 2;
