@@ -4,3 +4,13 @@ LEFT JOIN Orders O
 ON P.id = O.product_id 
 AND YEAR(O.order_date) = 2023
 WHERE O.product_id IS NULL;
+
+Highest Average Salary Department
+
+SELECT d.dept_name
+FROM Employees e
+JOIN Departments d 
+ON d.id = e.dept_id
+GROUP BY d.dept_name
+ORDER BY AVG(e.salary) DESC
+LIMIT 1;
