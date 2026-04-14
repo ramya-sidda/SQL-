@@ -1,0 +1,6 @@
+SELECT P.id, P.product_name
+FROM Products P
+LEFT JOIN Orders O
+ON P.id = O.product_id 
+AND YEAR(O.order_date) = 2023
+WHERE O.product_id IS NULL;
