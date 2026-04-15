@@ -1,0 +1,17 @@
+Count Employees per Department
+
+SELECT d.dept_name
+FROM Departments d
+LEFT JOIN Employees e 
+ON e.dept_id = d.id
+GROUP BY d.id, d.dept_name
+HAVING COUNT(e.dept_id) > (
+    SELECT AVG(emp_count)
+    FROM (
+        SELECT COUNT(e.dept_id) AS emp_count
+        FROM Departments d
+        LEFT JOIN Employees e 
+        ON e.dept_id = d.id
+        GROUP BY d.id
+    ) t
+);
